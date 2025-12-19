@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => {
     return (
         <div className='ml-1'>
-            <div className="navbar border-b-2 border-info shadow-sm bg-base-300">
+            <div className="navbar border-b-2 border-info shadow-sm bg-base-300 rounded-b-2xl">
                 <div className="flex-1 ">
                     <label className="input input-info">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
