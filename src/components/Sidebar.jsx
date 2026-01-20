@@ -1,16 +1,13 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// Icons
 import { CiHome, CiWallet } from "react-icons/ci";
 import { IoMdList } from "react-icons/io";
 import { FaUserPlus, FaCoffee, FaRegBuilding } from "react-icons/fa";
 import { TbCategory2 } from "react-icons/tb";
 import { MdOutlineAnalytics, MdOutlineWorkOutline } from "react-icons/md";
-import { HiPencil } from "react-icons/hi";
 import { LuPlus } from "react-icons/lu";
 
-// Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -21,11 +18,12 @@ const Sidebar = () => {
   const isActive = (path) => location.pathname === path;
 
   const menuItems = [
-    { label: "Dashboard", path: "/dashboard", icon: <CiHome size={20} /> },
+    { label: "Dashboard", path: "/", icon: <CiHome size={20} /> },
     { label: "Orders", path: "/orders", icon: <IoMdList size={20} /> },
     { label: "Products", path: "/products", icon: <FaCoffee size={18} /> },
     { label: "Wallet", path: "/wallet", icon: <CiWallet size={20} /> },
     { label: "Workers", path: "/workers", icon: <MdOutlineWorkOutline size={20} /> },
+    { label: "Support", path: "/support", icon: <MdOutlineWorkOutline size={20} /> },
   ];
 
   const promoSlides = [
@@ -41,16 +39,10 @@ const Sidebar = () => {
       link: "/workers",
       buttonLabel: "Add Worker",
     },
-    {
-      description: "Create branches and expand your business.",
-      image: "https://png.pngtree.com/png-clipart/20190520/original/pngtree-2-5d-building-2-5d-bungalow-building-bungalow-png-image_3920651.jpg",
-      link: "/branches",
-      buttonLabel: "Add Branch",
-    },
   ];
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-[17%] min-w-[240px] bg-base-300 shadow-xl flex flex-col p-3 border-r-2 border-info rounded-">
+    <aside className="fixed top-0 left-0 h-screen w-[17%] bg-base-300 shadow-xl flex flex-col p-3 border-r-2 border-info rounded-2xl">
 
       <div className="h-[12%] flex flex-col justify-center px-3">
         <p className="text-xl font-bold text-warning">Sardor Shop</p>
@@ -68,10 +60,9 @@ const Sidebar = () => {
               <Link
                 to={path}
                 className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all
-                  ${
-                    isActive(path)
-                      ? "bg-info text-white"
-                      : "t"
+                  ${isActive(path)
+                    ? "bg-bg-info text-white"
+                    : "t"
                   }`}
               >
                 {icon}
@@ -83,7 +74,7 @@ const Sidebar = () => {
       </div>
 
       {/* Promo Swiper */}
-      <div className="h-[23%] mt-3 bg-info rounded-xl overflow-hidden">
+      <div className="h-[23%] mt-3 bg-bg-info rounded-xl overflow-hidden">
         <Swiper
           slidesPerView={1}
           loop

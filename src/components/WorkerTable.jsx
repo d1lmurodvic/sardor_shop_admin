@@ -30,7 +30,7 @@ const WorkerList = ({ workers, professions, editWorkerHandler, deleteWorkerHandl
                 <div className="text-center">Status</div>
                 <div className="text-center">Actions</div>
             </div>
- 
+
 
             {workers.map((worker, index) => (
                 <div key={worker.id} className="grid grid-cols-12 font-medium text-base-content p-3 border-b border-opacity-30 border-white bg-opacity-30  text-left items-center">

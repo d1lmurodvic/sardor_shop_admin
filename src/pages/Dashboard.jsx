@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Line, Doughnut, Bar } from "react-chartjs-2";
-import "chart.js/auto"; // auto-register (scales, elements...)
+import "chart.js/auto"; 
+import Container from "../components/Container";
 
 const currencyUZS = (v) =>
   Number(v || 0).toLocaleString("uz-UZ") + " so'm";
@@ -12,7 +13,6 @@ const kpi = {
   satisfaction: 92,
 };
 
-// ---- Mock datasets (replace with API later) ----
 const last7DaysRevenue = [
   { d: "Du", amt: 6_200_000 },
   { d: "Se", amt: 7_450_000 },
@@ -42,7 +42,6 @@ const weekAppointments = [
 ];
 
 export default function DentistChartsDashboard() {
-  // ====== Charts data ======
   const revenueLine = useMemo(() => {
     return {
       labels: last7DaysRevenue.map((x) => x.d),
@@ -52,8 +51,8 @@ export default function DentistChartsDashboard() {
           data: last7DaysRevenue.map((x) => x.amt),
           fill: true,
           tension: 0.35,
-          backgroundColor: "rgba(59,130,246,0.15)", // blue-500/15
-          borderColor: "rgba(59,130,246,1)",         // blue-500
+          backgroundColor: "rgba(59,130,246,0.15)", 
+          borderColor: "rgba(59,130,246,1)",       
           pointRadius: 3,
         },
       ],
@@ -150,17 +149,13 @@ export default function DentistChartsDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-base-300 rounded-2xl ">
-      {/* Header */}
+      <div className="min-h-screen bg-base-300 rounded-2xl ">
       <div className="navbar bg-base-300 rounded-2xl shadow-md border-b border-base-300 sticky top-0 z-20">
         <div className="max-w-7xl mx-auto w-full px-4">
           <span className="text-lg font-bold">Dentist Dashboard</span>
         </div>
       </div>
-
-      {/* Content */}
       <div className="max-w-7xl mx-auto p-4 md:p-6 space-y-6">
-        {/* KPIs */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <div className="card bg-base-100 border border-base-300 shadow-sm">
             <div className="card-body p-4">

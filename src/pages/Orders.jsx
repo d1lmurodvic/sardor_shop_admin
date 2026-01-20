@@ -36,7 +36,7 @@ const Orders = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
-        <span className="loading loading-spinner loading-lg text-info"></span>
+        <span className="loading loading-spinner loading-lg text-bg-info"></span>
       </div>
     );
   }
@@ -45,8 +45,8 @@ const Orders = () => {
     <div className="p-6">
       {/* Page Title */}
       <div className="mb-6 flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-info">Orders</h1>
-        <span className="badge badge-info badge-outline">
+        <h1 className="text-3xl font-bold text-bg-info">Orders</h1>
+        <span className="badge badge-bg-info badge-outline">
           Total: {orders.length}
         </span>
       </div>
@@ -74,13 +74,12 @@ const Orders = () => {
                 <td>{order.quantity}</td>
                 <td>
                   <span
-                    className={`badge ${
-                      order.status === "completed"
-                        ? "badge-success"
-                        : order.status === "pending"
+                    className={`badge ${order.status === "completed"
+                      ? "badge-success"
+                      : order.status === "pending"
                         ? "badge-warning"
                         : "badge-info"
-                    }`}
+                      }`}
                   >
                     {order.status}
                   </span>

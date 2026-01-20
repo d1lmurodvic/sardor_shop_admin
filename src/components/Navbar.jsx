@@ -1,6 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        navigate('/login')
+    }
     return (
         <div className='ml-1'>
             <div className="navbar border-b-2 border-info shadow-sm bg-base-300 rounded-b-2xl">
@@ -26,7 +33,6 @@ const Navbar = () => {
                     <div>
                         <label className="swap swap-rotate">
                             <input type="checkbox" className="theme-controller" value="synthwave" />
-
                             <svg
                                 className="swap-off h-10 w-10 fill-current"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +68,7 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li><a onClick={handleLogout}>Logout</a></li>
                         </ul>
                     </div>
                 </div>
